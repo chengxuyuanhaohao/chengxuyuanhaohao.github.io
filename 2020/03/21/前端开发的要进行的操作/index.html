@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="referrer" content="no-referrer" />
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="John Doe">
+
+
+
+
+
+<title>前端开发的要进行的操作 | Hexo</title>
+
+
+
+    <link rel="icon" href="/diqiu.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        // (() => {
+        //     const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+        //     const isDark = currentTheme === 'dark';
+        //     const pagebody = document.getElementsByTagName('body')[0]
+        //     if (isDark) {
+        //         pagebody.classList.add('dark-theme');
+        //         // mobile
+        //         document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+        //     } else {
+        //         pagebody.classList.remove('dark-theme');
+        //         // mobile
+        //         document.getElementById("mobile-toggle-theme").innerText = "· Light"
+        //     }
+        // })();
+        !
+            function () {
+                function n(n, e, t) {
+                    return n.getAttribute(e) || t
+                }
+                function e(n) {
+                    return document.getElementsByTagName(n)
+                }
+                function t() {
+                    var t = e("script"),
+                        o = t.length,
+                        i = t[o - 1];
+                    return {
+                        l: o,
+                        z: n(i, "zIndex", -1), //置于主页面背后
+                        o: n(i, "opacity", .5), //线条透明度
+                        c: n(i, "color", "0,0,0"), //线条颜色
+                        n: n(i, "count", 200) //线条数量
+                    }
+                }
+                function o() {
+                    a = m.width = window.innerWidth ||
+                        document.documentElement.clientWidth || document.body.clientWidth,
+                        c = m.height = window.innerHeight ||
+                        document.documentElement.clientHeight || document.body.clientHeight
+                }
+                function i() {
+                    r.clearRect(0, 0, a, c);
+                    var n, e, t, o, m, l;
+                    s.forEach(function (i, x) {
+                        for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 :
+                            1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1,
+                                1), e = x + 1; e < u.length; e++) n = u[e],
+                                    null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l
+                                        = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o,
+                                            i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t /
+                                            2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y),
+                                            r.lineTo(n.x, n.y), r.stroke()))
+                    }),
+                        x(i)
+                }
+                var a, c, u, m = document.createElement("canvas"),
+                    d = t(),
+                    l = "c_n" + d.l,
+                    r = m.getContext("2d"),
+                    x = window.requestAnimationFrame || window.webkitRequestAnimationFrame
+                        || window.mozRequestAnimationFrame || window.oRequestAnimationFrame ||
+                        window.msRequestAnimationFrame ||
+                        function (n) {
+                            window.setTimeout(n, 1e3 / 45)
+                        },
+                    w = Math.random,
+                    y = {
+                        x: null,
+                        y: null,
+                        max: 2e4
+                    };
+                m.id = l,
+                    m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z +
+                    ";opacity:" + d.o,
+                    e("body")[0].appendChild(m),
+                    o(),
+                    window.onresize = o,
+                    window.onmousemove = function (n) {
+                        n = n || window.event,
+                            y.x = n.clientX,
+                            y.y = n.clientY
+                    },
+                    window.onmouseout = function () {
+                        y.x = null,
+                            y.y = null
+                    };
+                for (var s = [], f = 0; d.n > f; f++) {
+                    var h = w() * a,
+                        g = w() * c,
+                        v = 2 * w() - 1,
+                        p = 2 * w() - 1;
+                    s.push({
+                        x: h,
+                        y: g,
+                        xa: v,
+                        ya: p,
+                        max: 6e3
+                    })
+                }
+                u = s.concat([y]),
+                    setTimeout(function () {
+                        i()
+                    },
+                        100)
+            }();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">程序员浩浩</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">程序员浩浩</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">前端开发的要进行的操作</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 21, 2020&nbsp;&nbsp;14:57:22</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p><a name="vDoEw"></a></p>
+<h2 id="前端开发软件"><a href="#前端开发软件" class="headerlink" title="前端开发软件"></a>前端开发软件</h2><ul>
+<li>DreamWare</li>
+<li>Sublime</li>
+<li>WebStrom</li>
+<li>HBuilderX</li>
+<li>VSCode</li>
+</ul>
+<p>VSCode是微软曾经的一个web项目，后来瞄准了Github团队推出Atom编辑器时，开发的一个框架Electorn。<br><a name="lf2jJ"></a></p>
+<h2 id="1-安装VSCode"><a href="#1-安装VSCode" class="headerlink" title="1. 安装VSCode"></a>1. 安装VSCode</h2><p><a name="sqfTt"></a></p>
+<h3 id="1-1-下载地址"><a href="#1-1-下载地址" class="headerlink" title="1.1 下载地址"></a>1.1 下载地址</h3><p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a> 官方地址 官方地址下载太慢，我们可以使用国内的下载位置<br />建议使用<br><a name="HeUVl"></a></p>
+<h3 id="1-2-搜索VSCode"><a href="#1-2-搜索VSCode" class="headerlink" title="1.2 搜索VSCode"></a>1.2 搜索VSCode</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656896526314-93102344-909a-4ca0-b35d-1c60e5c36172.png#clientId=u130bd8d6-b5f7-4&from=paste&height=175&id=u86b68a16&name=image.png&originHeight=175&originWidth=978&originalType=binary&ratio=1&rotation=0&showTitle=false&size=16690&status=done&style=none&taskId=u657a37b2-ac71-49a5-9860-837a8eae35e&title=&width=978" alt="image.png"><br><a name="FErxi"></a></p>
+<h3 id="1-3-安装VSCode"><a href="#1-3-安装VSCode" class="headerlink" title="1.3. 安装VSCode"></a>1.3. 安装VSCode</h3><p>  下载完成后，我们会得到安装文件。<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656896572421-797d080a-cb82-4e05-a626-5fdfbdf474df.png#clientId=u130bd8d6-b5f7-4&from=paste&height=138&id=udacd84b8&name=image.png&originHeight=138&originWidth=108&originalType=binary&ratio=1&rotation=0&showTitle=false&size=3638&status=done&style=none&taskId=u712353e2-d2d1-49dd-86c2-82210abd445&title=&width=108" alt="image.png"><br />双击安装程序进行安装<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656896587778-07529c53-c259-4b74-b693-f899d5d5f533.png#clientId=u130bd8d6-b5f7-4&from=paste&height=470&id=u15f9c310&name=image.png&originHeight=470&originWidth=612&originalType=binary&ratio=1&rotation=0&showTitle=false&size=31476&status=done&style=none&taskId=ua5b415f1-a213-4bc3-871b-6f08b60d272&title=&width=612" alt="image.png"><br />这一步很重要！！！！！！一定要把所有的选项都选中<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656896598302-284b4634-8d53-4686-9d70-f058be9f1421.png#clientId=u130bd8d6-b5f7-4&from=paste&height=470&id=uc3afc5a7&name=image.png&originHeight=470&originWidth=612&originalType=binary&ratio=1&rotation=0&showTitle=false&size=25515&status=done&style=none&taskId=u9123f3a7-90c9-4c50-abc4-beddd5db4c0&title=&width=612" alt="image.png"><br />选中后，未来我们可以直接通过右键打开我们的vscode和对应的文件。<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656896633423-51638b60-7fb9-4015-b44f-b36cdccb1c8a.png#clientId=u130bd8d6-b5f7-4&from=paste&height=470&id=u238c3315&name=image.png&originHeight=470&originWidth=612&originalType=binary&ratio=1&rotation=0&showTitle=false&size=25635&status=done&style=none&taskId=u089b0176-ce81-40f1-9b89-0e56cc2d0c3&title=&width=612" alt="image.png"><br><a name="uWd59"></a></p>
+<h2 id="2-配置VSCode"><a href="#2-配置VSCode" class="headerlink" title="2. 配置VSCode"></a>2. 配置VSCode</h2><p><a name="KPpIt"></a></p>
+<h3 id="2-1-插件"><a href="#2-1-插件" class="headerlink" title="2.1. 插件"></a>2.1. 插件</h3><p>安装插件的过程非常简单<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656897914015-ab06976d-e9aa-49aa-a402-39a29391f3f9.png#clientId=u44ac923a-203f-4&from=paste&height=398&id=u9668c81c&name=image.png&originHeight=398&originWidth=535&originalType=binary&ratio=1&rotation=0&showTitle=false&size=22631&status=done&style=none&taskId=ufb4429fb-29f4-422e-b68f-9511b408f6c&title=&width=535" alt="image.png"><br />在我们的VSCode中选中左侧的最后一个图标<img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656897934357-785dd744-025e-4a76-a35e-736b2d2c473e.png#clientId=u44ac923a-203f-4&from=paste&height=50&id=ube1b33c0&name=image.png&originHeight=50&originWidth=47&originalType=binary&ratio=1&rotation=0&showTitle=false&size=499&status=done&style=none&taskId=ub360465e-6d72-4195-9449-f62c3595b43&title=&width=47" alt="image.png">，点击之后就可以搜索插件并且安装了<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656897990563-f596fc69-e62f-460a-a083-9a1ca65fae00.png#clientId=u44ac923a-203f-4&from=paste&height=327&id=u15d58c56&name=image.png&originHeight=327&originWidth=348&originalType=binary&ratio=1&rotation=0&showTitle=false&size=34484&status=done&style=none&taskId=uf6dce7bf-8115-405f-b4db-3d586c6f67a&title=&width=348" alt="image.png"><br />点击右侧安装即可安装。<br><a name="VWODZ"></a></p>
+<h4 id="Chinese-Simplified-简体中文-Language-Pack-for-Visual-Studio-Code-汉化插件"><a href="#Chinese-Simplified-简体中文-Language-Pack-for-Visual-Studio-Code-汉化插件" class="headerlink" title="Chinese (Simplified) (简体中文) Language Pack for Visual Studio Code 汉化插件"></a>Chinese (Simplified) (简体中文) Language Pack for Visual Studio Code 汉化插件</h4><p>一般情况下，我们第一次打开VSCode，就会提示安装汉化插件，在右下角，点击安装即可<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656897660258-160efc9d-8536-4c21-82a6-8df21922ed49.png#clientId=u44ac923a-203f-4&from=paste&height=1041&id=u176b4465&name=image.png&originHeight=1041&originWidth=1920&originalType=binary&ratio=1&rotation=0&showTitle=false&size=96965&status=done&style=none&taskId=u2d048581-510e-4214-bc7e-7aae93f8c1e&title=&width=1920" alt="image.png"><br />安装完成后就会变成中文的界面。<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656897702494-c196f763-1d36-4b87-961e-85535fbd0fb9.png#clientId=u44ac923a-203f-4&from=paste&height=1039&id=u3037b4bc&name=image.png&originHeight=1039&originWidth=1920&originalType=binary&ratio=1&rotation=0&showTitle=false&size=81312&status=done&style=none&taskId=u350cd514-7c6c-47e2-a93c-f02f4539534&title=&width=1920" alt="image.png"><br><a name="Q0QGk"></a></p>
+<h4 id="Open-In-Default-Browser-在默认浏览器中打开页面"><a href="#Open-In-Default-Browser-在默认浏览器中打开页面" class="headerlink" title="Open In Default Browser 在默认浏览器中打开页面"></a>Open In Default Browser 在默认浏览器中打开页面</h4><p><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656898093083-97329051-c3f6-459e-94bb-45f98a88cae6.png#clientId=u44ac923a-203f-4&from=paste&height=382&id=ud145a1a0&name=image.png&originHeight=382&originWidth=301&originalType=binary&ratio=1&rotation=0&showTitle=false&size=37073&status=done&style=none&taskId=u24b47192-6f1e-4272-a10c-a0b39c4c48a&title=&width=301" alt="image.png"><br />装第一个<br><a name="pgmHp"></a></p>
+<h4 id="Auto-Rename-Tag-自动修改标签名"><a href="#Auto-Rename-Tag-自动修改标签名" class="headerlink" title="Auto Rename Tag 自动修改标签名"></a>Auto Rename Tag 自动修改标签名</h4><p><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656898148200-cddcbe1d-eed4-456a-89b9-3d09321c4cb0.png#clientId=u44ac923a-203f-4&from=paste&height=288&id=u4cd7e4ab&name=image.png&originHeight=288&originWidth=302&originalType=binary&ratio=1&rotation=0&showTitle=false&size=26460&status=done&style=none&taskId=u10847cc1-1551-4c8a-af00-b4b5778b92e&title=&width=302" alt="image.png"><br><a name="KYJSu"></a></p>
+<h4 id="Path-Intellisense-路径提示"><a href="#Path-Intellisense-路径提示" class="headerlink" title="Path Intellisense 路径提示"></a>Path Intellisense 路径提示</h4><p><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656898184574-443a5265-040b-4797-9ea6-65a817a1cf45.png#clientId=u44ac923a-203f-4&from=paste&height=291&id=uc77d083e&name=image.png&originHeight=291&originWidth=300&originalType=binary&ratio=1&rotation=0&showTitle=false&size=24608&status=done&style=none&taskId=ucfa200c1-311d-4e73-ad5e-f68cb479859&title=&width=300" alt="image.png"><br><a name="NyXCb"></a></p>
+<h3 id="2-2-设置"><a href="#2-2-设置" class="headerlink" title="2.2. 设置"></a>2.2. 设置</h3><p>单击文件 -&gt; 首选项 -&gt; 设置，打开设置界面<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656898315632-f8ffb061-2af5-4d47-986e-142e907f7ecd.png#clientId=u44ac923a-203f-4&from=paste&height=790&id=u36774366&name=image.png&originHeight=790&originWidth=590&originalType=binary&ratio=1&rotation=0&showTitle=false&size=66833&status=done&style=none&taskId=u4102c440-4cf2-4f28-9b34-2659a3f1095&title=&width=590" alt="image.png"><br><a name="clstf"></a></p>
+<h4 id="修改文字大小"><a href="#修改文字大小" class="headerlink" title="修改文字大小"></a>修改文字大小</h4><p>找到Font Size 修改大小可以设置文字的大小<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656898375246-9e346cf3-7cf9-461f-adff-0308f711c0ca.png#clientId=u44ac923a-203f-4&from=paste&height=126&id=ua0a8c056&name=image.png&originHeight=126&originWidth=513&originalType=binary&ratio=1&rotation=0&showTitle=false&size=4798&status=done&style=none&taskId=u6ec3c00a-e4a7-41c2-aa04-8016e12365a&title=&width=513" alt="image.png"><br><a name="LL3QN"></a></p>
+<h4 id="修改缩进"><a href="#修改缩进" class="headerlink" title="修改缩进"></a>修改缩进</h4><p>建议修改为 2<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656898409508-9a3e029c-a795-4956-b952-7cac858c44bd.png#clientId=u44ac923a-203f-4&from=paste&height=109&id=ub9d20b9d&name=image.png&originHeight=109&originWidth=641&originalType=binary&ratio=1&rotation=0&showTitle=false&size=8394&status=done&style=none&taskId=u67eb4152-aa53-4f45-ac6d-ec31a556730&title=&width=641" alt="image.png"><br><a name="G8cod"></a></p>
+<h4 id="Emmet设置"><a href="#Emmet设置" class="headerlink" title="Emmet设置"></a>Emmet设置</h4><p>在设置中搜索emmet<img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656898443203-edab76e5-44ec-43f9-bc84-134a7b66e0c3.png#clientId=u44ac923a-203f-4&from=paste&height=73&id=u6b89e6c7&name=image.png&originHeight=73&originWidth=1176&originalType=binary&ratio=1&rotation=0&showTitle=false&size=4536&status=done&style=none&taskId=ude7bdfbb-efbc-4293-901a-3aa908bb9ad&title=&width=1176" alt="image.png"><br />找到搜索结果中的倒数第二个<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656898473946-58764312-71f6-415f-890b-62344f76b5fe.png#clientId=u44ac923a-203f-4&from=paste&height=83&id=ua38011a2&name=image.png&originHeight=83&originWidth=392&originalType=binary&ratio=1&rotation=0&showTitle=false&size=5843&status=done&style=none&taskId=u65891460-d5ec-4802-a756-79392536821&title=&width=392" alt="image.png"><br />勾选上。<br><a name="wh0vj"></a></p>
+<h2 id="3-常见用法"><a href="#3-常见用法" class="headerlink" title="3. 常见用法"></a>3. 常见用法</h2><p><a name="h5ia2"></a></p>
+<h3 id="3-1-新建文件"><a href="#3-1-新建文件" class="headerlink" title="3.1. 新建文件"></a>3.1. 新建文件</h3><p>在VSCode中创建文件。<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656899943995-dcc99d9c-1d77-4c09-aee4-01dc603141b5.png#clientId=ub2d227a2-4112-4&from=paste&height=193&id=uca40e774&name=image.png&originHeight=193&originWidth=306&originalType=binary&ratio=1&rotation=0&showTitle=false&size=9456&status=done&style=none&taskId=u28bb2990-85a5-461d-ad6c-b028bf958ab&title=&width=306" alt="image.png"><br />点击对应的图标，可以新建文件<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656899968567-47547f45-f5e0-4b59-ab15-21228c95778c.png#clientId=ub2d227a2-4112-4&from=paste&height=82&id=ud072304b&name=image.png&originHeight=82&originWidth=321&originalType=binary&ratio=1&rotation=0&showTitle=false&size=3350&status=done&style=none&taskId=u416fa822-66e9-43fe-9e27-22a8f1a9de3&title=&width=321" alt="image.png"><br />在打开的输入框中，输入文件名<br><a name="h8Bdu"></a></p>
+<h3 id="3-2-快捷键"><a href="#3-2-快捷键" class="headerlink" title="3.2. 快捷键"></a>3.2. 快捷键</h3><ul>
+<li>复制 Ctrl + C</li>
+<li>剪切 Ctrl + X</li>
+</ul>
+<p>未来如果我们想要删除某一行，我们只需要把光标放到某一行上，直接剪切就可以删除对应的内容。<br />复制时也可以实现对应的效果，光标在哪一行，就可以直接复制一整行</p>
+<ul>
+<li>粘贴 Ctrl +V</li>
+<li>撤回 Ctrl + Z </li>
+<li>取消撤回 Ctrl + Y</li>
+<li>保存 Ctrl + S 可以保存文件</li>
+</ul>
+<p>在我们编辑文件的时候，没有保存是一件很可怕的事情<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656900334170-4628af1f-3f8c-4483-9c56-5f9742a42c9d.png#clientId=ub2d227a2-4112-4&from=paste&height=291&id=u02d7195f&name=image.png&originHeight=291&originWidth=470&originalType=binary&ratio=1&rotation=0&showTitle=false&size=14252&status=done&style=none&taskId=uceae8396-a25c-4186-8edf-5cd7ae0931c&title=&width=470" alt="image.png"><br />没有保存的文件，是一个实心圆，保存过的文件，没有这个圆<br />如果我们忘记了保存文件，建议大家开启自动保存。更建议养成习惯，随手Ctrl + S</p>
+<ul>
+<li>软换行 Alt + Z</li>
+</ul>
+<p>如果单行文本过长，会出现横向滚动条，横向滚动条不利于我们编写内容，所以我们可以使用软换行。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://example.com/2020/03/21/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84%E8%A6%81%E8%BF%9B%E8%A1%8C%E7%9A%84%E6%93%8D%E4%BD%9C/">http://example.com/2020/03/21/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84%E8%A6%81%E8%BF%9B%E8%A1%8C%E7%9A%84%E6%93%8D%E4%BD%9C/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
