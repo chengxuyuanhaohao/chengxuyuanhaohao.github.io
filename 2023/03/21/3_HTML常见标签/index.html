@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="referrer" content="no-referrer" />
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="John Doe">
+
+
+
+
+
+<title>HTML常见标签 | Hexo</title>
+
+
+
+    <link rel="icon" href="/diqiu.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        // (() => {
+        //     const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+        //     const isDark = currentTheme === 'dark';
+        //     const pagebody = document.getElementsByTagName('body')[0]
+        //     if (isDark) {
+        //         pagebody.classList.add('dark-theme');
+        //         // mobile
+        //         document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+        //     } else {
+        //         pagebody.classList.remove('dark-theme');
+        //         // mobile
+        //         document.getElementById("mobile-toggle-theme").innerText = "· Light"
+        //     }
+        // })();
+        !
+            function () {
+                function n(n, e, t) {
+                    return n.getAttribute(e) || t
+                }
+                function e(n) {
+                    return document.getElementsByTagName(n)
+                }
+                function t() {
+                    var t = e("script"),
+                        o = t.length,
+                        i = t[o - 1];
+                    return {
+                        l: o,
+                        z: n(i, "zIndex", -1), //置于主页面背后
+                        o: n(i, "opacity", .5), //线条透明度
+                        c: n(i, "color", "0,0,0"), //线条颜色
+                        n: n(i, "count", 200) //线条数量
+                    }
+                }
+                function o() {
+                    a = m.width = window.innerWidth ||
+                        document.documentElement.clientWidth || document.body.clientWidth,
+                        c = m.height = window.innerHeight ||
+                        document.documentElement.clientHeight || document.body.clientHeight
+                }
+                function i() {
+                    r.clearRect(0, 0, a, c);
+                    var n, e, t, o, m, l;
+                    s.forEach(function (i, x) {
+                        for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 :
+                            1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1,
+                                1), e = x + 1; e < u.length; e++) n = u[e],
+                                    null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l
+                                        = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o,
+                                            i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t /
+                                            2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y),
+                                            r.lineTo(n.x, n.y), r.stroke()))
+                    }),
+                        x(i)
+                }
+                var a, c, u, m = document.createElement("canvas"),
+                    d = t(),
+                    l = "c_n" + d.l,
+                    r = m.getContext("2d"),
+                    x = window.requestAnimationFrame || window.webkitRequestAnimationFrame
+                        || window.mozRequestAnimationFrame || window.oRequestAnimationFrame ||
+                        window.msRequestAnimationFrame ||
+                        function (n) {
+                            window.setTimeout(n, 1e3 / 45)
+                        },
+                    w = Math.random,
+                    y = {
+                        x: null,
+                        y: null,
+                        max: 2e4
+                    };
+                m.id = l,
+                    m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z +
+                    ";opacity:" + d.o,
+                    e("body")[0].appendChild(m),
+                    o(),
+                    window.onresize = o,
+                    window.onmousemove = function (n) {
+                        n = n || window.event,
+                            y.x = n.clientX,
+                            y.y = n.clientY
+                    },
+                    window.onmouseout = function () {
+                        y.x = null,
+                            y.y = null
+                    };
+                for (var s = [], f = 0; d.n > f; f++) {
+                    var h = w() * a,
+                        g = w() * c,
+                        v = 2 * w() - 1,
+                        p = 2 * w() - 1;
+                    s.push({
+                        x: h,
+                        y: g,
+                        xa: v,
+                        ya: p,
+                        max: 6e3
+                    })
+                }
+                u = s.concat([y]),
+                    setTimeout(function () {
+                        i()
+                    },
+                        100)
+            }();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">程序员浩浩</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">程序员浩浩</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">HTML常见标签</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 21, 2023&nbsp;&nbsp;15:14:53</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>如果我们往网页上展示内容，就需要把内容写在body标签中。<br><a name="Ftt1l"></a></p>
+<h2 id="1-段落"><a href="#1-段落" class="headerlink" title="1. 段落"></a>1. 段落</h2><p>使用p标签标示网页中段落，段落的特点，另起一行排列，段落和段落之间有距离<br><a name="AvXQZ"></a></p>
+<h3 id="1-1-网页渲染一些特点"><a href="#1-1-网页渲染一些特点" class="headerlink" title="1.1. 网页渲染一些特点"></a>1.1. 网页渲染一些特点</h3><p>在网页中，我们html 内容中的回车会被渲染成空格，不管几个回车都会被渲染成一个。空格也是，不管多少个空格都会被渲染成一个空格。当回车跟着标签时，不会被渲染成空格</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  内容</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a name="NMZES"></a></p>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><p>在网上找一篇文章，给文章显示成段落分明的效果。<br><a name="XRbYl"></a></p>
+<h2 id="2-标题"><a href="#2-标题" class="headerlink" title="2. 标题"></a>2. 标题</h2><p>在网页上显示一个标题，标题标签有6个，分别h1、h2、h3、h4、h5、h6。未来我提到标题标签会用<code>hx</code>来说。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>一级标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>二级标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>三级标题<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>四级标题<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h5</span>&gt;</span>五级标题<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h6</span>&gt;</span>六级标题<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>完成后，可以展示到页面上六个级别的标题<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656914923782-8b766078-e04b-4e90-830a-31b46f69ecd1.png#clientId=u2101e15a-85e9-4&from=paste&height=283&id=tYIiq&name=image.png&originHeight=283&originWidth=243&originalType=binary&ratio=1&rotation=0&showTitle=false&size=8968&status=done&style=none&taskId=u3fd9772c-dcf6-44f8-89a9-55ab82dd923&title=&width=243" alt="image.png"><br><a name="vxqaY"></a></p>
+<h3 id="练习-1"><a href="#练习-1" class="headerlink" title="练习"></a>练习</h3><p>用合适的标签给段落的练习中添加标题以及作者信息。<br><a name="lHSSV"></a></p>
+<h2 id="3-超链接"><a href="#3-超链接" class="headerlink" title="3. 超链接"></a>3. 超链接</h2><p>在我们的网页上，我们需要通过超链接的方式，将页面跳转到另外的页面中。<br />超链接是<code>a</code>标签</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a name="pr1XY"></a></p>
+<h3 id="3-1-网页的地址"><a href="#3-1-网页的地址" class="headerlink" title="3.1. 网页的地址"></a>3.1. 网页的地址</h3><p>我们称网页的地址为网址，叫URL<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656916050456-f832ddd1-6a53-44dc-b902-70072df439e3.png#clientId=ufe81256d-9b1a-4&from=paste&height=480&id=Tm1Y2&name=image.png&originHeight=480&originWidth=715&originalType=binary&ratio=1&rotation=0&showTitle=false&size=17988&status=done&style=none&taskId=u58227396-480d-4586-ad74-b93999a8440&title=&width=715" alt="image.png"><br />只要有网址，我们就能从浏览器进入到对应的网页中。<br />我们使用超链接的目的，是为了替代用户手动输入网址并访问的这个过程。<br><a name="VYd7D"></a></p>
+<h3 id="3-2-超链接的使用方式"><a href="#3-2-超链接的使用方式" class="headerlink" title="3.2. 超链接的使用方式"></a>3.2. 超链接的使用方式</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;url(网址)&quot;</span>&gt;</span>超链接的名字<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>默认情况下，a标签跳转链接会在当前页面中打开。之前的页面成为了历史记录。<br><a name="h0HMt"></a></p>
+<h3 id="3-3-新的页面中打开超链接"><a href="#3-3-新的页面中打开超链接" class="headerlink" title="3.3. 新的页面中打开超链接"></a>3.3. 新的页面中打开超链接</h3><p>除了href属性外，a标签还有target属性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>超链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>_blank 表示在新的页面中打开</li>
+<li>_self 表示在当前页面中打开 （默认值）<br><a name="PY2Nk"></a></li>
+</ul>
+<h3 id="3-4-超链接上的提示-（基本不用）"><a href="#3-4-超链接上的提示-（基本不用）" class="headerlink" title="3.4. 超链接上的提示 （基本不用）"></a>3.4. 超链接上的提示 （基本不用）</h3><p>title属性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;当鼠标放在这个超链接上时，会显示这个提示&quot;</span>&gt;</span>超链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a name="hsuyG"></a></p>
+<h3 id="3-5-如果未来没有要跳转的url怎么办"><a href="#3-5-如果未来没有要跳转的url怎么办" class="headerlink" title="3.5. 如果未来没有要跳转的url怎么办"></a>3.5. 如果未来没有要跳转的url怎么办</h3><p>在我们写静态页面时，我么的a标签都是暂时不需要跳转的，我们可以先写占位符，使用一个 <code>#</code>占位即可</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>超链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a name="OJpy0"></a></p>
+<h3 id="练习-2"><a href="#练习-2" class="headerlink" title="练习"></a>练习</h3><p>在上面的练习中，找到10个名词，替换成超链接，可以跳转到对应的百度百科<br><a name="Xr48l"></a></p>
+<h2 id="4-图片"><a href="#4-图片" class="headerlink" title="4. 图片"></a>4. 图片</h2><p>在网页上添加图片可以使用img标签，img标签是一个单标签。 	</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>src source 资源位置，表示图片的路径</li>
+<li>alt<br><a name="NTS9u"></a></li>
+</ul>
+<h3 id="4-1-图片路径问题"><a href="#4-1-图片路径问题" class="headerlink" title="4.1. 图片路径问题"></a>4.1. 图片路径问题</h3><p>我们想要在网页上显示一个图片，直接使用图片对应的路径即可。问题在于，路径到底长什么样子。<br><a name="igPFZ"></a></p>
+<h4 id="4-1-1-在网络上的图片有网络地址"><a href="#4-1-1-在网络上的图片有网络地址" class="headerlink" title="4.1.1. 在网络上的图片有网络地址"></a>4.1.1. 在网络上的图片有网络地址</h4><p>存在于网络上的图片，就是在网页中能够浏览到的图片。这些图片我们都能获取到对应的地址<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656919068901-b1e99622-0cec-46a3-bc4b-0ee8ee093293.png#clientId=ufe81256d-9b1a-4&from=paste&height=505&id=JEJq5&name=image.png&originHeight=505&originWidth=603&originalType=binary&ratio=1&rotation=0&showTitle=false&size=270281&status=done&style=none&taskId=uc16564ef-d312-409f-b88a-519dd24f8e7&title=&width=603" alt="image.png"><br />我们可以直接将网络地址替换到img的src属性中。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;网络地址&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>图片的网络地址想要正确的显示一张图片，需要我们的电脑联网才能访问。<br><a name="DRDe5"></a></p>
+<h4 id="4-1-2-本地路径-绝对路径"><a href="#4-1-2-本地路径-绝对路径" class="headerlink" title="4.1.2. 本地路径-绝对路径"></a>4.1.2. 本地路径-绝对路径</h4><p>在我们电脑上的所有文件都有一个路径，右键属性即可查看<br /><img src="https://cdn.nlark.com/yuque/0/2022/png/203294/1656920085190-b5ea4647-54e4-4569-87db-ac7ed9b7705c.png#clientId=ufe81256d-9b1a-4&from=paste&height=480&id=ZO8kO&name=image.png&originHeight=480&originWidth=377&originalType=binary&ratio=1&rotation=0&showTitle=false&size=20369&status=done&style=none&taskId=u3d15487f-bff5-469c-b500-7826ad30ccf&title=&width=377" alt="image.png"><br />这个位置+文件名字就是这个文件的绝对路径</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\Desktop\1.jpeg</span><br></pre></td></tr></table></figure>
+<p>如果位置图片更改了位置，那么我们的路径就不能找到对应的图片了<br />注意！！！！我们在项目中不会使用绝对路径的！！！<br><a name="zYchN"></a></p>
+<h4 id="4-1-3-本地路径-相对路径"><a href="#4-1-3-本地路径-相对路径" class="headerlink" title="4.1.3. 本地路径-相对路径"></a>4.1.3. 本地路径-相对路径</h4><ul>
+<li>.&#x2F; 当前目录</li>
+<li>..&#x2F; 上一级目录</li>
+</ul>
+<p>我们要找图片时，保持我们的html和存放图片的目录在一个文件夹中。<br />直接在src中写 <code>./</code>剩下的VSCode会提示的。<br />什么情况下用<code>../</code>在后续的css操作中会讲。<br><a name="YYwT4"></a></p>
+<h3 id="4-2-图片大小设置"><a href="#4-2-图片大小设置" class="headerlink" title="4.2. 图片大小设置"></a>4.2. 图片大小设置</h3><p>图片显示后，每个图片都由自己的宽高，想要图片正确的显示不变形，宽高比不能高边。</p>
+<ul>
+<li>width</li>
+<li>height</li>
+</ul>
+<p>属性值没有单位，但是表示的像素。<br />当我们设置宽度时，高度会自动等比缩放，反之相同。<br />如果我们要同时设置宽高时，一定要注意图片比例，保证图片不变形。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;&quot;</span> <span class="attr">height</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a name="nlRI2"></a></p>
+<h3 id="4-3-图片加载失败时占位文字"><a href="#4-3-图片加载失败时占位文字" class="headerlink" title="4.3. 图片加载失败时占位文字"></a>4.3. 图片加载失败时占位文字</h3><p>alt属性可以用来在图片加载失败时显示占位文字信息</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./img/11.jpeg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;当图片加载失败时显示的占位文字&quot;</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><a name="s8kx7"></a></p>
+<h2 id="5-影响字体样式的标签"><a href="#5-影响字体样式的标签" class="headerlink" title="5. 影响字体样式的标签"></a>5. 影响字体样式的标签</h2><p>下面的标签基本上我们不会去使用，除了i标签em标签因为本身比较短或者刚好和icon一致，会被选用图标。<br><a name="PZGKu"></a></p>
+<h3 id="5-1-b-strong"><a href="#5-1-b-strong" class="headerlink" title="5.1. b strong"></a>5.1. b strong</h3><p>可以让文字加粗，前者表示粗体字体，后者表示文字强调。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">b</span>&gt;</span>文字<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">strong</span>&gt;</span>文字<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a name="x2Roo"></a></p>
+<h3 id="5-2-i-em"><a href="#5-2-i-em" class="headerlink" title="5.2. i em"></a>5.2. i em</h3><p>可以让文字倾斜，前者表示斜体字体，后者表示文字强调。<br />未来的网页上这两个标签会很常用，但是不是用来做文字倾斜的。一般情况下，网页上的图标会使用这两个标签。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">i</span>&gt;</span>文字<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">em</span>&gt;</span>文字<span class="tag">&lt;/<span class="name">em</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a name="o04OB"></a></p>
+<h3 id="5-3-sup-sub"><a href="#5-3-sup-sub" class="headerlink" title="5.3. sup sub"></a>5.3. sup sub</h3><p>上标和下标，很少用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X<span class="tag">&lt;<span class="name">sup</span>&gt;</span>2<span class="tag">&lt;/<span class="name">sup</span>&gt;</span></span><br><span class="line">log<span class="tag">&lt;<span class="name">sub</span>&gt;</span>a<span class="tag">&lt;/<span class="name">sub</span>&gt;</span>10</span><br></pre></td></tr></table></figure>
+<p><a name="QD53a"></a></p>
+<h3 id="5-4-下划线-删除线"><a href="#5-4-下划线-删除线" class="headerlink" title="5.4. 下划线 删除线"></a>5.4. 下划线 删除线</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">u</span>&gt;</span>会显示下划线<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">s</span>&gt;</span>会显示删除线<span class="tag">&lt;/<span class="name">s</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">del</span>&gt;</span>会显示删除线<span class="tag">&lt;/<span class="name">del</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://example.com/2023/03/21/3_HTML%E5%B8%B8%E8%A7%81%E6%A0%87%E7%AD%BE/">http://example.com/2023/03/21/3_HTML%E5%B8%B8%E8%A7%81%E6%A0%87%E7%AD%BE/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/03/21/4_HTML%E5%B8%B8%E8%A7%81%E6%A0%87%E7%AD%BE2/">HTML常见标签2</a>
+            
+            
+            <a class="next" rel="next" href="/2020/03/21/2_HTML%E5%9F%BA%E7%A1%80/">HTML基础</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
